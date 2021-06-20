@@ -16,6 +16,10 @@ package com.demi.code;
 
 */
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Q_16 {
 	public static void main(String[] args) {
 		// 测试用例
@@ -66,7 +70,7 @@ public class Q_16 {
 		for(int i = 0; i < len; ++i) {
 			// 用++i，然后判断的时候，用i和i - 1的值作比较，避免指针越界
 			if(i > 0 && nums[i] == nums [i - 1]) {
-				continue
+				continue;
 			}
 			// 使用双指针
 			int l = i + 1;
