@@ -1,4 +1,4 @@
-// package com.demi.code;
+package com.demi.code;// package com.demi.code;
 
 /*
   题目要求：

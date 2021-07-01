@@ -65,7 +65,7 @@ public class Q_05 {
         if (len < 2) {
             return s;
         }
-
+        // 最长子串的长度至少为1
         int maxLen = 1;
         int begin = 0;
         char[] chars = s.toCharArray();

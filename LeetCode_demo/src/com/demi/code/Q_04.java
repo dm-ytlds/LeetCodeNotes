@@ -1,6 +1,5 @@
 package com.demi.code;
 import java.lang.*;
-import java.util.Arrays;
 
 public class Q_04 {
     public static void main(String[] args) {
@@ -25,7 +24,7 @@ public class Q_04 {
                 mid = (double) nums2[temp];
             }
         }
-        // 如果nums1为空
+        // 如果nums2为空
         if(n == 0) {
             if(m % 2 == 0) {
                 int temp = m / 2;
