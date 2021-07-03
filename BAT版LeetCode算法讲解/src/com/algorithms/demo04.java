@@ -1,4 +1,4 @@
-package com.algorithms;
+package src.com.algorithms;
 
 import java.util.ArrayDeque;
 import java.util.Deque;

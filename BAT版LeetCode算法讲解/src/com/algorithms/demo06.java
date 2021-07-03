@@ -1,4 +1,4 @@
-package com.algorithms;
+package src.com.algorithms;
 
 import java.util.Scanner;
 
@@ -12,9 +12,12 @@ public class demo06 {
         Scanner sc = new Scanner(System.in);
         System.out.print("请输入行列数（行数和列数一样）：");
         int n = sc.nextInt();
-        int ans = nums(n);
+        int ans = nums02(n);
         System.out.println(n + "行" + n + "列所对应的皇后个数为：" + ans);
+
+
     }
+
     public static int nums(int n) {
         if (n == 1) {
             return 0;
@@ -63,5 +66,50 @@ public class demo06 {
             }
         }
         return true;
+    }
+
+    public static int nums02(int n) {
+        if (n < 1 || n > 32) {
+            return 0;
+        }
+        // 如果是13皇后问题，limit最右侧13个'1'，其他都是'0'
+        int limit = n == 32 ? -1 : (1 << n) - 1;
+        return process02(limit, 0, 0, 0);
+    }
+
+    /**
+     *
+     * @param limit  划定了问题的规模 --> 固定
+     * @param colLim    列的限制，1的位置不能放皇后，0的位置可以
+     * @param leftDiaLim    左斜线的限制，1的位置不能放皇后，0的位置可以
+     * @param rightDiaLim   右斜线的限制，1的位置不能放皇后，0的位置可以
+     * @return
+     */
+    public static int process02(
+            int limit,
+            int colLim,
+            int leftDiaLim,
+            int rightDiaLim
+    ) {
+        if (colLim == limit) {
+            return 1;
+        }
+        // 所有可以放皇后的位置，都在pos上
+        // colLim | leftDiaLim | rightDiaLim    --> 总限制
+        // ~(colLim | leftDiaLim | rightDiaLim)   --> 左侧的一堆0干扰，右侧每个1都可尝试
+        int pos = limit & ( ~(colLim | leftDiaLim | rightDiaLim));
+        int mostRightOne = 0;
+        int res = 0;
+        while (pos != 0) {
+            // 取出pos中，最右侧的 '1' 来，剩下的位置都是 0
+            mostRightOne = pos & (~pos + 1);
+            pos = pos - mostRightOne;
+            res += process02(limit,
+                    colLim | mostRightOne,
+                    (leftDiaLim | mostRightOne) << 1,
+                    (rightDiaLim | mostRightOne) >>> 1
+                    );
+        }
+        return res;
     }
 }

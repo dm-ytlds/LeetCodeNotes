@@ -1,4 +1,4 @@
-package com.algorithms;
+package src.com.algorithms;
 
 /** 暴力递归到动态规划1
  * https://www.bilibili.com/video/BV1PB4y1w7Tj?from=search&seid=8056243090427949156

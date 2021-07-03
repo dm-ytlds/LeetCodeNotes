@@ -1,6 +1,4 @@
-package com.algorithms;
-
-import jdk.jshell.spi.SPIResolutionException;
+package src.com.algorithms;
 
 /** 从左往右的尝试模型1
  * 1->A

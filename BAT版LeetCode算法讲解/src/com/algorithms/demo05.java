@@ -1,4 +1,4 @@
-package com.algorithms;
+package src.com.algorithms;
 
 /** 范围式模型
  * 题目要求：给定一个数字数组，有A，B两人，每次只能有一个人从数组两端的任意一端取出一个数，最终数字取完，获得数字之和值 更大 的人获胜。
