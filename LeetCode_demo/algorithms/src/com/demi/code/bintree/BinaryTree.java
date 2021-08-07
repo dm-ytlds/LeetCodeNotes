@@ -33,12 +33,17 @@ public class BinaryTree {
         // 验证后序遍历
 //        backOrder(root);
         backOrder_iter(root);
+        // 验证复制二叉树功能
+//        TreeNode newRoot = copy(root);
+//        backOrder_iter(newRoot);
+        // 验证层级遍历
+//        levelOrder(root);
         for (int value : lists) {
             System.out.println(value);
         }
     }
-
     public static List<Integer> lists = new ArrayList<>();
+
     // 1.1 先序遍历 --> 递归实现
     public static void preOrder(TreeNode root) {
         if (root != null) {
@@ -121,6 +126,39 @@ public class BinaryTree {
                 stack.push(temp.right);
             }
         }
+    }
+
+    // 层级遍历
+    public static void levelOrder(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        // 定义队列，实现节点的存储
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            // 取出队列的头节点
+            TreeNode front = queue.remove();
+            lists.add(front.val);
+            if (front.left != null) {
+                queue.add(front.left);
+            }
+            if (front.right != null) {
+                queue.add(front.right);
+            }
+        }
+    }
+
+    // 复制二叉树
+    public static TreeNode copy(TreeNode oldRoot) {
+        TreeNode root = new TreeNode(-1);
+        if (oldRoot != null) {
+            root.left = copy(oldRoot.left);
+            root.right = copy(oldRoot.right);
+            root.val = oldRoot.val;
+            return root;
+        }
+        return null;
     }
 }
 

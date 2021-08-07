@@ -3,7 +3,7 @@ package com.demi.code;// package com.demi.code;
 /*
   题目要求：
 	给你一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，
-	使得 a + b + c = 0 ？请你找出所有和为 0 且不重复的三元组。
+	使得a + b + c = 0 ？请你找出所有和为 0 且不重复的三元组。
 
 	注意：答案中不可以包含重复的三元组。
 	
@@ -31,7 +31,11 @@ import java.util.List;
 
 public class Q_15 {
 	public static void main(String[] args) {
-		
+		int[] nums = {-1,0,1,2,-1,-4};
+		List<List<Integer>> lis = threeSum(nums);
+		for (List<Integer> li : lis) {
+			System.out.println(li);
+		}
 	}
 	/*
 	  题解：
@@ -40,7 +44,7 @@ public class Q_15 {
 		时间复杂度：O(n^2);
 		空间复杂度：O(1)。
 	*/
-	public List<List<Integer>> threeSum(int[] nums) {
+	public static List<List<Integer>> threeSum(int[] nums) {
 		// 双指针：头尾指针
 		int len = nums.length;
 		// 列表套列表
@@ -49,7 +53,7 @@ public class Q_15 {
 			return ans;
 		// 对数组排序
 		Arrays.sort(nums);
-        for(int i = 0; i < len; i ++) {
+        for(int i = 0; i < len; i++) {
 			// 排序后，如果第一个元素就比1大，那么结果肯定不小于1
             if(nums[i] > 0)
 				break;
@@ -63,21 +67,23 @@ public class Q_15 {
 			while(left < right) {
 				int sum = nums[i] + nums[left] + nums[right];
 				if(sum == 0) {
-					List<Integer> list = new ArrayList();
-					list.add(nums[i]);
-					list.add(nums[left]);
-					list.add(nums[right]);
-					ans.add(list);
-					while(nums[left] == nums[left + 1])
-						left ++;
-					while(nums[right] == nums[right - 1])
-						right --;
+					//List<Integer> list = new ArrayList();
+					//list.add(nums[i]);
+					//list.add(nums[left]);
+					//list.add(nums[right]);
+					ans.add(Arrays.asList(nums[i], nums[left], nums[right]));
+					while(left < right && nums[left] == nums[left + 1])
+						left++;
+					while(left < right && nums[right] == nums[right - 1])
+						right--;
+					left++;
+					right++;
 				}
 				else if(sum < 0) {
-					left ++;
+					left++;
 				}
-				else {
-					right --;
+				else if (sum > 0){
+					right--;
 				}
 			}
 			

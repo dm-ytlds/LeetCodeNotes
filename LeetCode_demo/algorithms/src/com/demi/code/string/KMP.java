@@ -1,4 +1,4 @@
-package com.demi.code;
+package com.demi.code.string;
 
 public class KMP {
     public static void main(String[] args) {
@@ -17,9 +17,11 @@ public class KMP {
 
     /**
      * 根据给定的主串和子串，采用KMP算法来获取模式匹配。
-     * @param str
-     * @param subStr
-     * @return
+     * 1. 如何生成“部分匹配值表（模式匹配表）” getNext()方法
+     * 2. 通过“模式匹配表”得到最终匹配成功的起始下标位置index，或者匹配失败返回index = -1
+     * @param str   主串
+     * @param subStr    子串
+     * @return  匹配的起始下标位置
      */
     public static int kmp(String str, String subStr) {
         // 部分匹配表（模式匹配）生成
@@ -55,7 +57,9 @@ public class KMP {
         while (j < subStr.length() - 1) {
             // 讨论j位置处的字符是否和k位置处的字符相等
             /*
-                若相等，说明
+                若相等，next[j + 1] = k + 1，相应的j和k 值都需要增加1；
+                如果不相等：若k==0, next[j + 1] = 0;相应的j值增加1；
+                         否则，此时的k值变成next[k]
              */
             if (subStr.charAt(j) == subStr.charAt(k)) {
                 next[j + 1] = k + 1;
@@ -68,6 +72,7 @@ public class KMP {
                 k = next[k];
             }
         }
+        // 返回得到的模式匹配数组
         return next;
     }
 }

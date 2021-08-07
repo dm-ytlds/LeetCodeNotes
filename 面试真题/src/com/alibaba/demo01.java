@@ -1,5 +1,3 @@
-package com.alibaba;
-
 import java.util.Scanner;
 
 /** 题目描述：

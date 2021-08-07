@@ -31,13 +31,13 @@ public class QuickSort {
         // temp表示基准数
         // t在每一次交换元素时起作用，作为元素交换的临时位置
         int i, j, temp , t;
-        // 如果已经有序，直接返回
+        // 如果出现这种情况，直接返回
         if (low > high) {
             return;
         }
         i = low;
         j = high;
-        // 初始化临时置换元素为当前数组的第一个元素
+        // 初始化基准元素为当前数组的第一个元素
         temp = nums[low];
         // 一轮交换
         while (i < j) {

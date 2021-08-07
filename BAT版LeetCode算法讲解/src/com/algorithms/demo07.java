@@ -1,6 +1,6 @@
 package src.com.algorithms;
 
-public class demo07 {
+public class  demo07 {
     public static void main(String[] args) {
 
     }

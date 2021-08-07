@@ -7,20 +7,81 @@ package com.demi.code;
  */
 public class Q_28 {
     public static void main(String[] args) {
-
+        String haystack = "mississippi";
+        String needle = "issip";
+        System.out.println(strStr(haystack, needle));
     }
 
 
     /**
-     *
+     *  模式匹配
      * @param haystack
      * @param needle
      * @return
      */
-    public int strStr(String haystack, String needle) {
-        /*for (int i = 0; i < haystack.length(); i++) {
-            haystack.indexOf(i);
-        }*/
-        return haystack.indexOf(needle);
+    public static int strStr(String haystack, String needle) {
+        int m = haystack.length();
+        int n = needle.length();
+        if (n == 0) {
+            return 0;
+        }
+        int index = -1;
+
+        // int[] next = getNext(needle);
+
+        int[] next = new int[n];
+        next[0] = -1;
+        if (n > 1) {
+            int i = 0, k = 0;
+            next[1] = 0;
+            while (i < n - 1) {
+                if (needle.charAt(i) == needle.charAt(k)) {
+                    next[i + 1] = k + 1;
+                    i++;
+                    k++;
+                } else if (k == 0) {
+                    i++;
+                } else {
+                    k = next[k];
+                }
+            }
+        }
+
+        // 枚举主串和子串的字符
+        int a = 0, b = 0;
+        while (a < m && b < n) {
+            if (haystack.charAt(a) == needle.charAt(b)) {
+                a++;
+                b++;
+            } else if (b == 0) {
+                a++;
+            } else {
+                b = next[b];
+            }
+        }
+        if (b == n) {
+            index = a - n;
+        }
+        return index;
     }
+
+//    private static int[] getNext(String needle) {
+//        int i = 0, k = 0;
+//        int n = needle.length();
+//        int[] next = new int[n];
+//        next[0] = -1;
+//        next[1] = 0;
+//        while (i < n - 1) {
+//            if (needle.charAt(i) == needle.charAt(k)) {
+//                next[i + 1] = k + 1;
+//                i++;
+//                k++;
+//            } else if (k == 0) {
+//                i++;
+//            } else {
+//                k = next[k];
+//            }
+//        }
+//        return next;
+//    }
 }
