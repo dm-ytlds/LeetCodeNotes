@@ -8,6 +8,7 @@ import java.util.Arrays;
  */
 public class HeapSortTest {
     public static void heapSort(int[] arr) {
+        Math.ceil(12);
         // 1.先将数组转换成堆结构
         // 数组的初始状态实际上就对应了堆的初始状态，不需要使用代码进行转换
 

@@ -77,9 +77,11 @@ public class Q_45 {
         // 下一个元素能够覆盖的最远距离下标
         int nextCoverDis = 0;
         for (int i = 0; i < nums.length - 1; i++) {
-            // 更新下一步覆盖的最远距离下标
+            // 在可覆盖区域内更新最大的覆盖区域
+            // nums[i] + i：移动到第i个元素了，说明至少可以走i步
             nextCoverDis = Math.max(nums[i] + i, nextCoverDis);
-            // 如果到达了当前元素的下标还没走完，就更新当前下标为下一步覆盖的最远距离的下标
+
+            // 移动下标只要遇到当前覆盖最远距离的下标，更新当前下标为下一步覆盖的最远距离的下标，步数直接加一，不用考虑别的了。
             if (i == curCoverDis) {
                 curCoverDis = nextCoverDis;
                 maxStep++;

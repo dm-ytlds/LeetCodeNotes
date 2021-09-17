@@ -161,14 +161,3 @@ public class BinaryTree {
         return null;
     }
 }
-
-// 定义节点类
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-    TreeNode(int val) {
-        this.val = val;
-    }
-
-}

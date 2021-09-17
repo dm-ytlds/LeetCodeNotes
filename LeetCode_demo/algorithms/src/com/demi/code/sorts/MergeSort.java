@@ -49,6 +49,7 @@ public class MergeSort {
 
     }
     public static void mergeSort(int[] arrA, int low, int high, int[] arrB) {
+        // 递归的过程。用if即可
         if (low < high) {
             // 找到数组的中间位置元素的下标
             int mid = (low + high) / 2;

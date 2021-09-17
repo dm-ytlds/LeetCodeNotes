@@ -66,7 +66,8 @@ public class QuickSort {
         // 将基准数与遍历到的最后一个元素交换（即i，j相遇处）
         nums[low] = nums[i];
         nums[i] = temp;
-        // 递归基准数的左半边数组
+        // 递归基准数的左半边数组。右边界之所以是j - 1和左边界之所以是j + 1，
+        // 是因为第j个元素的左边数字都比它小，右边数字都比它大，所以排序不再需要带上它
         quickSort(nums, low, j - 1);
         // 递归基准数的右半边数组
         quickSort(nums, j + 1, high);
