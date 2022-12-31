@@ -45,18 +45,20 @@ public class Q_15_me {
                 int sum = nums[k] + nums[i] + nums[j];
                 // 三数之和
                 if (sum > 0) {
-                    i++;
-                } else if (sum < 0) {
                     j--;
+                } else if (sum < 0) {
+                    i++;
                 } else {
                     lists.add(new ArrayList<>(Arrays.asList(nums[k], nums[i], nums[j])));
                     // 然后移动左右指针
-                    while (nums[i] == nums[i + 1]) {
+                    while (i < j && nums[i] == nums[i + 1]) {
                         i++;
                     }
-                    while (nums[j] == nums[j - 1]) {
+                    while (i < j && nums[j] == nums[j - 1]) {
                         j--;
                     }
+                    i++;
+                    j--;
                 }
             }
         }
