@@ -10,7 +10,7 @@ import java.util.List;
 public class Q_89 {
     public static void main(String[] args) {
         int n = 3;
-        System.out.println(Arrays.toString(grayCode(n).toArray()));
+        /*System.out.println(Arrays.toString(grayCode(n).toArray()));*/
     }
 
     /**
@@ -27,7 +27,7 @@ public class Q_89 {
      * @param n
      * @return
      */
-    public static List<Integer> grayCode(int n) {
+    /*public static List<Integer> grayCode(int n) {
         // 存储最终结果集。必须以0开头，所以先加一个0
         List<Integer> res = new ArrayList<>(){{add(0);}};
         // 初始增加值。最开始在最右边，随着结果集的遍历结束，向左移一位，直到n为止。
@@ -42,5 +42,5 @@ public class Q_89 {
              System.out.println(head);
          }
          return res;
-    }
+    }*/
 }

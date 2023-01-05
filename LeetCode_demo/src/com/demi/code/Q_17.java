@@ -35,7 +35,7 @@ public class Q_17 {
 		同时，拆解字母字符串进行配对。先存储在StringBuffer数组中，
 		遍历结束，在转成字符串的形式，返回最终字符串列表。
 	*/
-	public List<String> letterCombinations(String digits) {
+	/*public List<String> letterCombinations(String digits) {
 		// 存储返回的字符串列表
 		List<String> combs = new ArrayList<>();
 		int len = digits.length();
@@ -80,5 +80,5 @@ public class Q_17 {
 				combination.deleteCharAt(index);
 			}
 		}
-	}
+	}*/
 }
