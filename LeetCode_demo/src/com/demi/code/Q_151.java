@@ -60,7 +60,7 @@ public class Q_151 {
     private char[] removeExtraSpaces(char[] chars) {
         int slow = 0;
         for (int fast = 0; fast < chars.length; fast++) {
-            // 先用fast移除所有空格
+            // 先用fast移除首尾所有空格
             if (chars[fast] != ' ') {
                 // 再用slow加空格。除去第一个单词外，单词末尾要加空格
                 if (slow != 0) {
