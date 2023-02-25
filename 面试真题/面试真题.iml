@@ -8,6 +8,8 @@
       <sourceFolder url="file://$MODULE_DIR$/src/com/兴业数金" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/com/小夕算法公众号" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/com/面试收集" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/com/bijing" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../newcode/src/华为机试" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
